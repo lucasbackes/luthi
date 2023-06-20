@@ -1,0 +1,51 @@
+#cabecalho{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#cabecalho .logo img{max-height: 2.5rem; width: auto;}
+
+#cabecalho .menu--links, #cabecalho .menu--botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#cabecalho .menu--botoes{
+    gap: 10px;
+}
+
+#cabecalho .menu--links a{
+    font-size: 1.125rem;
+    color: black;
+    font-weight: 300;
+}
+
+#cabecalho .menu--links a:hover, #cabecalho .menu--links a:focus{
+    text-decoration: underline;
+}
+
+#cabecalho .menu--links a.active{
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#cabecalho .menu--botoes .menu--cta{
+    background-color: white;
+    color: black;
+    border: 1px #000 solid;
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: var(--primary-700);
+    border-color: var(--primary-700);
+}
+
+#cabecalho .menu--botoes .menu--cta.primary{
+    background-color: var(--primary-700);
+    color: white;
+}
+
+
