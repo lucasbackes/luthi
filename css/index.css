@@ -21,6 +21,7 @@
 
 .accent{color: var(--primary-500)}
 
+
 html, body{
     margin: 0;
     overflow-x: hidden;
@@ -92,9 +93,6 @@ section:nth-child(odd){
     background-image: url('../img/estruturas/divisor-topo-branco.svg');
 }
 
-section:last-child{
-    background-image: unset;
-}
 
 .hero{
     padding-top: 100px;
@@ -232,6 +230,7 @@ h2{
     display: flex;
     gap: 2rem;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 .plano{
@@ -594,4 +593,61 @@ h2{
     color: var(--accent-two-700);
     border-color: var(--accent-two-700);
     padding: 1rem;
+}
+
+.banner--promessas{
+    padding-right:0;
+}
+.banner--promessas .container{
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    align-items: center;
+    gap: 2rem;
+}
+.banner--promessas h2{
+    font-size: 2.3rem;
+    line-height: 1.048;
+    text-align: left;
+    padding: 0;
+}
+.banner--promessas h2 .destaque{
+    color: var(--primary-700);
+} 
+
+.conteudo--promessas{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.banner--promessas .cta--primary{
+    max-width: fit-content;
+    padding: 1rem;
+}
+
+
+@media screen and (max-width: 1280px) {
+    section{
+        padding-inline: 2rem;
+        padding-block: 3rem 6rem;
+    }
+    .hero{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .hero--media img{
+        max-height: 20vh;
+    }
+    .hero--info{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    
+
 }

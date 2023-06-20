@@ -1,12 +1,38 @@
 #cabecalho{
-    display: flex;
-    flex-direction: row;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
 }
 
+.close--mobile--menu{
+    display: none;
+}
+
+#cabecalho.mobile--open .menu--links--container{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    box-shadow: var(--neutral-400) -5px 5px 10px;
+    background-color: var(--primary-700);
+    width: 600px;
+    height: 90vh;
+    max-width: 90vw;
+    transition: 0.2s ease-in;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 #cabecalho .logo img{max-height: 2.5rem; width: auto;}
+
+#cabecalho .menu--links--container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 #cabecalho .menu--links, #cabecalho .menu--botoes{
     display: flex;
@@ -48,4 +74,66 @@
     color: white;
 }
 
+.menu--icon{
+    display: none;
+}
 
+@media screen and (max-width: 1280px) {
+    #cabecalho{
+        padding-inline: 1rem;
+        justify-content: space-between;
+    }
+
+    #cabecalho.mobile--open .close--mobile--menu{
+        display: block;
+    }
+
+    .menu--icon{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    #cabecalho .menu--links--container{
+        display: none;
+    }
+    
+    #cabecalho.mobile--open .menu--links--container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 4rem;
+        text-align: right;
+        padding: 2rem;
+    }
+
+    #cabecalho.mobile--open .menu--links,
+    #cabecalho.mobile--open .menu--botoes{
+        display: flex;
+        flex-direction: column;
+        color: white;
+        text-align: right;
+    }
+
+    #cabecalho.mobile--open .menu--links a{
+        color: white;
+    }
+    
+    #cabecalho.mobile--open .menu--botoes{
+        bottom: 3rem;
+        gap: 1rem;
+    }
+
+    #cabecalho.mobile--open .menu--botoes .menu--cta.primary{
+        border-color: white;
+        background-color: white;
+        color: var(--primary-700);
+        padding: 1rem;
+    }
+    #cabecalho.mobile--open .menu--botoes .menu--cta.secondary{
+        border-color: white;
+        color: white;
+        background-color: var(--primary-700);
+        padding: 1rem;
+    }
+}

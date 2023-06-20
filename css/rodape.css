@@ -1,0 +1,55 @@
+#rodape{
+    margin: 0;
+    background-color: var(--neutral-300);
+    color: var(--title);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 120px var(--padding-inline);
+    gap: 1rem;
+}
+
+.footer--logo{
+    border-right: 1px solid var(--title);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer--logo img{
+    width: 10rem; 
+}
+
+.footer--links{
+    padding-left: 40px;
+}
+.footer--links li{
+    list-style-type: none;
+}
+a.footer--link{
+    color: var(--title)
+}
+a.footer--link:hover, a.footer--link:focus{
+    text-decoration: underline;
+}
+
+.footer--link.active{
+    font-weight: bold;
+}
+
+.footer--links, .footer--info p{
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 300;
+}
+.footer--info p, .footer--links li{
+    padding-bottom: .5rem
+}
+
+.footer-whatsapp .cta--secondary{
+    border-color: #075E54;
+    color: #075E54;
+    width: fit-content;
+    padding: 1rem;
+}
