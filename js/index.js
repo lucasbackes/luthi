@@ -29,7 +29,7 @@ let el2 = document.querySelector(".planos");
 let x2 = 0, y2 = 0, top2 = 0, left2 = 0;
 
 let draggingFunction2 = (e2) => {
-    document.addEventListene.menu--iconr('mouseup', () => {
+    document.addEventListene.menu('mouseup', () => {
         document.removeEventListener("mousemove", draggingFunction2);
     });
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
     });
 
     $('#comeceAgora').on('click', function () {
-        console.log('click cta')
+        console.log('click cta');
     });
        
 
