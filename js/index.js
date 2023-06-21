@@ -52,22 +52,20 @@ el2.addEventListener('mousedown', (e2) => {
 $(document).ready(function () {
 
     console.log('carregou jq');
+
     $('.menu--icon').on('click', function () {
         console.log('click menu--icon');
         $('#cabecalho').addClass('mobile--open');
     });
+
     $('.close--mobile--menu').on('click', function () {
         $('#cabecalho').removeClass('mobile--open');
         console.log('tchau');
     });
-    $('#menuIcon').on('click', function () {
-        console.log('click menuIcon')
+    
+    $('#comeceAgora').on('click', function () {
+        console.log('click cta')
     });
        
 
 });
-
-let menu = document.querySelector('#comeceAgora');
-    menu.onclick = function () {
-        console.log('Clique CTA');
-}
