@@ -32,7 +32,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 0;
     transition: 1s ease-in;
 }
 
