@@ -21,7 +21,9 @@
 
 .accent{color: var(--primary-500)}
 
-
+html{
+    scroll-behavior: smooth;
+}
 html, body{
     margin: 0;
     overflow-x: hidden;
