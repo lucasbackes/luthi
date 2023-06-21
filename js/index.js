@@ -29,7 +29,7 @@ let el2 = document.querySelector(".planos");
 let x2 = 0, y2 = 0, top2 = 0, left2 = 0;
 
 let draggingFunction2 = (e2) => {
-    document.addEventListener('mouseup', () => {
+    document.addEventListene.menu--iconr('mouseup', () => {
         document.removeEventListener("mousemove", draggingFunction2);
     });
 
@@ -53,16 +53,16 @@ $(document).ready(function () {
 
     console.log('carregou jq');
 
-    $('.menu--icon').on('click', function () {
+    $('#cabecalho').on('click', '.menu--icon', function () {
         console.log('click menu--icon');
         $('#cabecalho').addClass('mobile--open');
     });
 
-    $('.close--mobile--menu').on('click', function () {
+    $('#cabecalho').on('click', '.close--mobile--menu', function () {
         $('#cabecalho').removeClass('mobile--open');
         console.log('tchau');
     });
-    
+
     $('#comeceAgora').on('click', function () {
         console.log('click cta')
     });
