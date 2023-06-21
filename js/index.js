@@ -52,6 +52,7 @@ el2.addEventListener('mousedown', (e2) => {
 $(document).ready(function () {
 
     $('.menu--icon').on('click', function () {
+        console.log('oi');
         $('#cabecalho').addClass('mobile--open');
     });
     $('.close--mobile--menu').on('click', function () {
