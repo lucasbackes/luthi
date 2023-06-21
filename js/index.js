@@ -50,14 +50,17 @@ el2.addEventListener('mousedown', (e2) => {
 
 
 $(document).ready(function () {
-
+    console.log('carregou jquery');
     $('.menu--icon').on('click', function () {
-        console.log('oi');
+        console.log('click menu--icon');
         $('#cabecalho').addClass('mobile--open');
     });
     $('.close--mobile--menu').on('click', function () {
         $('#cabecalho').removeClass('mobile--open');
         console.log('tchau');
+    });
+    $('#menuIcon').on('click', function () {
+        console.log('click menuIcon')
     });
     
 
