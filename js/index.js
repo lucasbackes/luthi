@@ -1,4 +1,5 @@
-
+$('#cabecalho').load('cabecalho.html');
+$('#rodape').load('rodape.html');
 
 let el = document.querySelector(".cards--cursos");
 let x = 0, y = 0, top1 = 0, left = 0;
@@ -50,9 +51,6 @@ el2.addEventListener('mousedown', (e2) => {
 
 $(document).ready(function () {
 
-    $('#cabecalho').load('cabecalho.html');
-    $('#rodape').load('rodape.html');
-
     console.log('carregou jq');
     $('.menu--icon').on('click', function () {
         console.log('click menu--icon');
@@ -69,7 +67,7 @@ $(document).ready(function () {
 
 });
 
-let menu = document.querySelector('#logoTopo');
+let menu = document.querySelector('#comeceAgora');
     menu.onclick = function () {
-        console.log('Clique logo topo');
+        console.log('Clique CTA');
 }
