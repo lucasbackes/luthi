@@ -50,7 +50,7 @@ el2.addEventListener('mousedown', (e2) => {
 
 
 $(document).ready(function () {
-    console.log('carregou jquery');
+    console.log('carregou jq');
     $('.menu--icon').on('click', function () {
         console.log('click menu--icon');
         $('#cabecalho').addClass('mobile--open');
@@ -62,6 +62,10 @@ $(document).ready(function () {
     $('#menuIcon').on('click', function () {
         console.log('click menuIcon')
     });
+    let menu = document.querySelector('#logoTopo');
+    menu.onclick = function () {
+        console.log('Clique logo topo');
+    }
     
 
 });
