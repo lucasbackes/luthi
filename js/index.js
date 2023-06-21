@@ -62,10 +62,11 @@ $(document).ready(function () {
     $('#menuIcon').on('click', function () {
         console.log('click menuIcon')
     });
-    let menu = document.querySelector('#logoTopo');
-    menu.onclick = function () {
-        console.log('Clique logo topo');
-    }
-    
+       
 
 });
+
+let menu = document.querySelector('#logoTopo');
+    menu.onclick = function () {
+        console.log('Clique logo topo');
+}
