@@ -57,6 +57,7 @@ $(document).ready(function () {
     });
     $('.close--mobile--menu').on('click', function () {
         $('#cabecalho').removeClass('mobile--open');
+        console.log('tchau');
     });
     
 
