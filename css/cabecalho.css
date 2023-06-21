@@ -21,7 +21,7 @@
     width: 600px;
     height: 90vh;
     max-width: 90vw;
-    transition: 0.2s ease-in;
+    transition: 1s ease-in;
     align-items: flex-start;
     justify-content: center;
 }
@@ -32,6 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 0;
+    transition: 1s ease-in;
 }
 
 #cabecalho .menu--links, #cabecalho .menu--botoes{

@@ -47,3 +47,16 @@ el2.addEventListener('mousedown', (e2) => {
 
     document.addEventListener('mousemove', draggingFunction2);
 });
+
+
+$(document).ready(function () {
+
+    $('.menu--icon').on('click', function () {
+        $('#cabecalho').addClass('mobile--open');
+    });
+    $('.close--mobile--menu').on('click', function () {
+        $('#cabecalho').removeClass('mobile--open');
+    });
+    
+
+});

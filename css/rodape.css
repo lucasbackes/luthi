@@ -21,6 +21,10 @@
     width: 10rem; 
 }
 
+.footer--info, .footer--links{
+    align-self: baseline;
+}
+
 .footer--links{
     padding-left: 40px;
 }
@@ -53,3 +57,57 @@ a.footer--link:hover, a.footer--link:focus{
     width: fit-content;
     padding: 1rem;
 }
+
+@media screen and (max-width: 1280px) {
+    #rodape{
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        align-items: center;
+        justify-content: center;
+        padding: 120px var(--padding-inline);
+        gap: 1rem;
+    }
+    
+    .footer-whatsapp{
+        grid-column: 1 / 4;
+        display: flex;
+        padding-top: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+    p{
+        font-size: 1rem;
+    }
+    .conteudo--promessas p{
+        font-size: 1rem;
+    }
+    #rodape{
+        display: flex;
+        flex-direction: column;
+        padding: 4rem 1rem;
+        gap: 2rem;
+        justify-content: center;
+    }
+    .footer--logo{
+        grid-column: 1 / 4;
+        border: 0;
+    }
+    #rodape p, #rodape li a{
+        font-size: .8rem;
+    }
+    .footer--info{
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+    }
+    .footer--links{
+        display: none;
+    }
+    .footer-whatsapp{padding-top: 0;}
+
+}
+
