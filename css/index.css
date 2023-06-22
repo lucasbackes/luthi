@@ -763,6 +763,10 @@ h2{
         fill: #292929;
     }
 
+    .planos{
+        overflow-x: scroll;
+    }
+
     .banner--promessas{
         padding-inline: 2rem;
     }
