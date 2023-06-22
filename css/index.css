@@ -232,16 +232,17 @@ h2{
 }
 
 .planos{
-    padding-top: 30px;
+    padding-block: 60px;
     display: flex;
     gap: 2rem;
     align-items: flex-end;
     overflow: hidden;
+    width: 100%;
+    justify-content: center;
 }
 
 .plano{
     text-align: left;
-    /* padding: 2.5rem; */
     padding-top: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -384,6 +385,7 @@ h2{
     /* overflow-x: auto;    */
 }
 
+
 .cards--cursos::before{
     position: absolute;
     top: 1rem;
@@ -414,7 +416,7 @@ h2{
 }
 
 .card--curso:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 
@@ -651,6 +653,9 @@ h2{
 
 
 @media screen and (max-width: 1280px) {
+    *{
+        scrollbar-color: transparent transparent;
+    }
     section{
         padding-inline: 2rem;
         padding-block: 3rem 6rem;
@@ -669,6 +674,25 @@ h2{
         align-items: center;
         text-align: center;
         gap: 3rem;
+    }
+
+    .planos{
+        justify-content: left;
+        width: 100vw;
+        touch-action: pan-y;
+        overflow-x: scroll;
+        position: relative;
+        max-width: calc(100% - 1.5rem);
+        gap: 16px;
+        padding-block: 60px;
+    }
+
+    .plano{
+        width: 45vw;
+        flex-shrink: 0;
+    }
+    .plano.destaque::before{
+        width: 45vw;
     }
 
     .col3{
@@ -764,6 +788,27 @@ h2{
     }
 
     .planos{
+        justify-content: flex-start;
+        width: 100vw;
+        touch-action: pan-y;
+        overflow-x: scroll;
+        position: relative;
+        max-width: calc(100% - 1.5rem);
+        gap: 16px;
+        padding-block: 60px;
+    }
+
+    .plano{
+        width: 60vw;
+        flex-shrink: 0;
+    }
+    .plano.destaque::before{
+        width: 60vw;
+    }
+    
+
+    .cards--cursos{
+        touch-action: pan-y;
         overflow-x: scroll;
     }
 
