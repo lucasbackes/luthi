@@ -5,7 +5,7 @@ let el = document.querySelector(".cards--cursos");
 let x = 0, y = 0, top1 = 0, left = 0;
 
 let draggingFunction = (e) => {
-    document.addEventListener('pointercancel', () => {
+    document.addEventListener('pointerup', () => {
         document.removeEventListener("pointermove", draggingFunction);
     });
 
