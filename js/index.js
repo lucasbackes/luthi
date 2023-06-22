@@ -49,8 +49,6 @@ cards.addEventListener('pointerdown', (ev) => {
 });
 
 
-
-
 $(document).ready(function () {
 
     console.log('carregou jq');
