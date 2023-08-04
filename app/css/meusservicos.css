@@ -1,0 +1,96 @@
+:root{
+
+    --neutral-300: #EFEFEF;
+    --neutral-320: #616161;
+    --neutral-400: #8F8F8F;
+    --neutral-350: #CACACA;
+    --neutral-600: #4F4F4F;
+
+    --title: #292929;
+
+    --primary-500: #FF6B6B;
+    --primary-700: #F73D3D;
+    
+    --accent-one-500: #B56BFF;
+    --accent-one-700: #7D40BB;
+    --accent-two-500: #6BB8FF;
+    --accent-two-700: #0680F1;
+
+
+    --padding-inline: calc((100vw - 1200px)/2);
+}
+
+.accent{color: var(--primary-500)}
+
+html{
+    scroll-behavior: smooth;
+}
+html, body{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    font-weight: 300;
+    font-size: 1.375rem;
+    line-height: 1.4;
+    color: var(--neutral-600);
+}
+
+.btn{
+    transition: 0.1s ease-in;
+}
+
+.btn:hover, .btn:focus{
+    transform: scale(1.1);
+}
+
+body{
+    background-color: var(--neutral-300);
+    font-family: 'Poppins', sans-serif;
+    max-width: calc(1920px - 20px);
+    padding-inline: var(--padding-inline);
+}
+
+#geral{
+    max-width: calc(1920px - 20px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+section{
+    padding-block: 40px 130px;
+    /* padding-inline: var(--padding-inline); */
+    margin: 0;
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+section:nth-child(even){
+    background-color: white;
+    background-image: url('../img/estruturas/divisor-topo-cinza.svg');
+}
+
+section:nth-child(odd){
+    background-color: var(--neutral-300);
+    background-image: url('../img/estruturas/divisor-topo-branco.svg');
+}
+
+
+
+@media screen and (max-width: 1280px) {
+
+    
+}
+
+
+@media screen and (max-width: 640px) {
+
+}

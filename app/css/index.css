@@ -1,0 +1,132 @@
+:root{
+
+    --neutral-300: #EFEFEF;
+    --neutral-320: #616161;
+    --neutral-400: #8F8F8F;
+    --neutral-350: #CACACA;
+    --neutral-600: #4F4F4F;
+
+    --title: #292929;
+
+    --primary-500: #FF6B6B;
+    --primary-700: #F73D3D;
+    
+    --accent-one-500: #B56BFF;
+    --accent-one-700: #7D40BB;
+    --accent-two-500: #6BB8FF;
+    --accent-two-700: #0680F1;
+
+
+    --padding-inline: calc((100vw - 1200px)/2);
+}
+
+.accent{color: var(--primary-500)}
+
+html{
+    scroll-behavior: smooth;
+}
+html, body{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    font-weight: 300;
+    font-size: 1.375rem;
+    line-height: 1.4;
+    color: var(--neutral-600);
+}
+
+.btn{
+    transition: 0.1s ease-in;
+}
+
+.btn:hover, .btn:focus{
+    transform: scale(1.1);
+}
+
+body{
+    background-color: var(--neutral-300);
+    font-family: 'Poppins', sans-serif;
+    max-width: calc(1920px - 20px);
+    padding-inline: var(--padding-inline);
+}
+
+#geral{
+    height: calc(100vh - 5rem);
+    max-width: calc(1920px - 20px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login--panel{
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    width: 360px;
+    max-width: 100vw;
+    background-color: #E9E9E9;
+}
+
+.login--title{
+    color: var(--title);
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+.login--campos{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 1rem;
+}
+
+.login--campos input{
+    padding-block: 1rem;
+    padding-left: 51px;
+    color: var(--neutral-320);
+    font-size: 1rem;
+    font-weight: 400;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+}
+
+.entrar{
+    border-radius: 5px;
+    background-color: var(--primary-700);
+    color: white;
+    padding-block: 1rem;
+    width: 90%;
+    border: 0;
+    cursor: pointer;
+}
+
+.entrar:hover, .entrar:focus{
+    transform: scale(1.05);
+}
+
+a.esqueci{
+    color: var(--neutral-320);
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1280px) {
+
+    
+}
+
+
+@media screen and (max-width: 640px) {
+
+}
