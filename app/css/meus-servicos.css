@@ -45,7 +45,9 @@ body{
 }
 
 section{
-    display: flex;
+    display: flex; #geral{
+        padding-inline: 10px;
+    }
     flex-direction: column;
     gap: 2rem;
 }
@@ -170,4 +172,84 @@ a.ver-todos-cursos:hover, a.ver-todos-cursos:focus{
     color: var(--neutral-600);
     line-height: 130%;
     padding-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 1280px) {
+    *{
+        flex-wrap: wrap;
+    }
+    #geral{
+        padding-inline: 10px;
+    }
+    section{
+        width: 100%;
+        padding-bottom: 4rem;
+    }
+    .card{
+        width: 300px;
+    }
+    #assinaturas .conteudo-card .flex-row{
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    
+}
+
+
+@media screen and (max-width: 640px) {
+
+    *{
+        flex-wrap: wrap;
+    }
+    .flex-row{
+        flex-direction: column;
+        
+    }
+    section{
+        width: 100%;
+        padding-bottom: 4rem;
+    }
+    #titulo-h1.flex-row{
+        /* flex-direction: row; */
+        gap: 10px;
+        flex-wrap: nowrap;
+        font-size: 2rem;
+        text-align: center;
+    }
+    h2{
+        text-align: center;
+    }
+
+    #geral{
+        padding-inline: 10px;
+    }
+    
+
+    .card{
+        width: 100%;
+    }
+    .titulo-card{
+        min-height: unset;
+    }
+    a.ver-todos-cursos{
+        width: calc(100% - 20px);
+        padding-block: 1rem;
+        background-color: var(--primary-500);
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+    }
+    a.ver-todos-cursos svg path{
+        fill: white;
+    }
+    #assinaturas .conteudo-card .flex-row{
+        flex-direction: row;
+    }
+    #assinaturas .conteudo-card{
+        min-height: unset;
+        gap: 10px;
+    }
+
+
 }
