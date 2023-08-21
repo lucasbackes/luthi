@@ -33,7 +33,9 @@ body{
     justify-content: center;
     align-items: flex-start;
     padding-block: 60px;
+    padding-inline: 10px;
 }
+
 
 #titulo-h1{
     gap: 2rem;
@@ -45,12 +47,11 @@ body{
 }
 
 section{
-    display: flex; #geral{
-        padding-inline: 10px;
-    }
+    display: flex; 
     flex-direction: column;
     gap: 2rem;
 }
+
 
 h2{
     font-weight: bold;

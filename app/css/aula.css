@@ -1,0 +1,200 @@
+.btn{
+    transition: 0.1s ease-in;
+}
+
+.btn:hover, .btn:focus{
+    transform: scale(1.05);
+}
+.btn:hover svg, .btn:focus svg{
+    transform: scale(1.1);
+    transform: translateX(10px);
+}
+
+body{
+    background-color: var(--neutral-300);
+    font-family: 'Poppins', sans-serif;
+    max-width: calc(1920px - 20px);
+    padding-inline: var(--padding-inline);
+}
+
+.flex-row{
+    display: flex;
+}
+
+.flex-start-center{
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#geral{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding-block: 60px;
+    padding-inline: 10px;
+}
+
+.area--titulo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background-color: white;
+    padding-block: 4.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--neutral-350);
+}
+#titulo-h1{
+    color: var(--title);
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 1;
+}
+.subheader{
+    font-size: 1.125rem;
+    color: var(--neutral-320);
+}
+
+
+.area--material{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+#modulos{
+    border-radius: 10px;
+    border: 1px solid var(--primary-700);
+    flex: 0 0 200px;
+    height: max-content;
+}
+.modulos--cabecalho{
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    color: white;
+    margin: 0;
+    background-color: var(--primary-700);
+    border-radius: 10px 10px 0 0;
+}
+.modulos--links{
+    color: black;
+    padding: .5rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+}
+.modulos--links.active{
+    background-color: var(--primary-700);
+    color: white;
+}
+a.modulos--links:hover:not(.active), a.modulos--links:focus:not(.active){
+    background-color: white;
+}
+a.modulos--links:last-child{
+    border-radius: 0 0 10px 10px;
+}
+.modulos--liks--numero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.625rem;
+    font-weight: bold;
+    padding: .9rem .9rem .9rem 0;
+}
+.modulos--liks--titulo{
+    font-size: .875rem;
+}
+
+#aulas{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.aula{
+    border-radius: 10px;
+    border: 1px solid #C7C7C7;
+}
+.aula--identificador{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px 10px 0 0;
+}
+.aula--identificador svg path{
+    fill: black;
+}
+.aula.active .aula--identificador{
+    background-color: var(--primary-700);
+    color: white;
+}
+.aula.active .aula--identificador svg path{
+    fill: white;
+}
+
+.aula--conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: left;
+    padding: 2rem 1.5rem;
+}
+
+.aula h2{
+    font-weight: bold;
+    color: var(--title);
+    line-height: 1.5;
+    font-size: 1.75rem;
+    padding-bottom: .5rem;
+}
+
+.aula--principal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.titulo--e--conteudo{
+    display: flex;
+    flex-direction: column;
+}
+.videoaula{
+    flex: 3;
+}
+.videoaula video{
+    width: 100%;
+}
+h3{
+    font-size: 1.125rem;
+    font-weight: bold;
+    padding-bottom: .5rem;
+}
+
+.anexo--pdf{
+    flex: 1;
+}
+.anexo--pdf a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-two-500);
+    height: 100%;
+    border-radius: 10px;
+}
+.anexo--pdf a:hover, .anexo--pdf a:focus{
+    background-color: var(--accent-two-600);
+}
+
+.aula--outros{
+    
+}
