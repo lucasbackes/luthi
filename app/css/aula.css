@@ -82,7 +82,7 @@ body{
     border-radius: 10px 10px 0 0;
 }
 .modulos--links{
-    color: black;
+    color: var(--neutral-600);
     padding: .5rem 1.5rem;
     display: flex;
     flex-direction: row;
@@ -130,6 +130,14 @@ a.modulos--links:last-child{
     padding: 1.5rem;
     border-radius: 10px 10px 0 0;
 }
+.aula--conteudo{
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: left;
+    padding: 2rem 1.5rem;
+}
+
 .aula--identificador svg path{
     fill: black;
 }
@@ -137,17 +145,15 @@ a.modulos--links:last-child{
     background-color: var(--primary-700);
     color: white;
 }
+.aula.active .aula--conteudo{
+    display:flex;
+}
+
 .aula.active .aula--identificador svg path{
     fill: white;
 }
 
-.aula--conteudo{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: left;
-    padding: 2rem 1.5rem;
-}
+
 
 .aula h2{
     font-weight: bold;
@@ -195,6 +201,78 @@ h3{
     background-color: var(--accent-two-600);
 }
 
-.aula--outros{
-    
+.links--e-arquivos > *{
+    padding-top: 1rem;
 }
+
+a.item--outros{
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+    color: var(--title);
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1280px) {
+    #geral{
+        gap: 1rem;
+    }
+    .area--titulo, h1#titulo-h1, .subheader{
+        background-color: var(--neutral-600);
+        color: white;
+    }
+    .area--material{
+        flex-direction: column;
+    }
+    #modulos{
+        position: relative;
+        display: inline-block;
+        height: unset;
+        flex: 0;
+        border-color: var(--neutral-600);
+        width: min(400px, 100%);
+        align-self: center;
+    }
+
+    #modulos .modulos--cabecalho{
+        display: flex;
+        background-color: var(--neutral-600);
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    #modulos .modulos--seletores{
+        position:absolute;
+        display: none;
+        flex-direction: column;
+        gap: .5rem;
+        width: 100%;
+        z-index: 1;
+        background-color: var(--neutral-300);
+        border-radius: 0 0 10px 10px;
+        
+    }
+    #modulos:hover, #modulos:focus, #modulos:active{
+        border-radius: 10px 10px 0 0;
+    }
+    #modulos:hover .modulos--cabecalho, #modulos:focus .modulos--cabecalho, #modulos:active .modulos--cabecalho{
+        border-radius: 10px 10px 0 0;
+    }
+    #modulos:hover .modulos--seletores, #modulos:focus .modulos--seletores, #modulos:active .modulos--seletores{
+        display: flex;
+    }
+
+    
+    .modulos--links.active{
+        background-color: var(--neutral-600);
+        border-radius: 5px;
+    }
+
+}
+
+
+@media screen and (max-width: 640px) {}
