@@ -40,3 +40,9 @@ p{
     line-height: 1.4;
     color: var(--neutral-600);
 }
+
+a.voltar{
+    display: flex;
+    align-items: center;
+    color: black;
+}

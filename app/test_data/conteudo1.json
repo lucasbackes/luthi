@@ -1,0 +1,74 @@
+{
+    "modulo1":{
+        "modulo_num":1,
+        "modulo_nome":"Módulo 1",
+        "aulas":[
+            {
+                "id":1,
+                "titulo":"Primeira aula",
+                "resumo":"lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet ",
+                "link_video":"curso1_modulo1_aula1_video.mpg",
+                "link_pdf":"curso1_modulo1_aula1_texto.pdf",
+                "outros_links":{
+                    "quantidade_links":"2",
+                    "links":[
+                        {
+                            "id":1,
+                            "tipo":"download",
+                            "link":"curso1_modulo1_aula1_link1.pdf"
+                        },
+                        {
+                            "id":2,
+                            "tipo":"link",
+                            "link":"curso1_modulo1_aula1_link2.pdf"
+                        }
+                    ]
+                }
+            },
+            {
+                "id":2,
+                "titulo":"Segunda aula",
+                "resumo":"aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2",
+                "link_video":"curso1_modulo1_aula2_video.mpg",
+                "link_pdf":"curso1_modulo1_aula2_texto.pdf",
+                "outros_links":{
+                    "quantidade_links":"2",
+                    "links":[
+                        {
+                            "id":1,
+                            "tipo":"download",
+                            "link":"curso1_modulo1_aula2_link1.pdf"
+                        },
+                        {
+                            "id":2,
+                            "tipo":"link",
+                            "link":"curso1_modulo1_aula2_link2.pdf"
+                        }
+                    ]
+                }
+            },
+            {
+                "id":3,
+                "titulo":"Terceira aula",
+                "resumo":"aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 ",
+                "link_video":"curso1_modulo1_aula2_video.mpg",
+                "link_pdf":"curso1_modulo1_aula3_texto.pdf",
+                "outros_links":{
+                    "quantidade_links":"2",
+                    "links":[
+                        {
+                            "id":1,
+                            "tipo":"download",
+                            "link":"curso1_modulo1_aula3_link1.pdf"
+                        },
+                        {
+                            "id":2,
+                            "tipo":"link",
+                            "link":"curso1_modulo1_aula3_link2.pdf"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -36,6 +36,8 @@ body{
     padding-inline: 10px;
 }
 
+
+
 .area--titulo{
     width: 100%;
     display: flex;
@@ -65,6 +67,7 @@ body{
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
+    width: 100%;
 }
 
 #modulos{
@@ -80,6 +83,9 @@ body{
     margin: 0;
     background-color: var(--primary-700);
     border-radius: 10px 10px 0 0;
+}
+.modulos--cabecalho:hover{
+    cursor: pointer;
 }
 .modulos--links{
     color: var(--neutral-600);
@@ -116,6 +122,7 @@ a.modulos--links:last-child{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
 }
 .aula{
     border-radius: 10px;
@@ -128,14 +135,23 @@ a.modulos--links:last-child{
     font-weight: bold;
     background-color: white;
     padding: 1.5rem;
+    border-radius: 10px;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+.aula.active .aula--identificador{
     border-radius: 10px 10px 0 0;
 }
+
 .aula--conteudo{
-    display: none;
+    height: 0;
+    overflow-y: hidden;
+    display: flex;
     flex-direction: column;
     gap: 2rem;
     justify-content: left;
-    padding: 2rem 1.5rem;
+    transition: 0.2s linear;
+    padding: 0 1.5rem;
 }
 
 .aula--identificador svg path{
@@ -146,7 +162,8 @@ a.modulos--links:last-child{
     color: white;
 }
 .aula.active .aula--conteudo{
-    display:flex;
+    height:auto;
+    padding: 2rem 1.5rem;
 }
 
 .aula.active .aula--identificador svg path{
@@ -275,4 +292,13 @@ a.item--outros{
 }
 
 
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 640px) {
+    .aula--principal{
+        flex-direction: column;
+    }
+    .anexo--pdf img{
+        width: 30px;
+        height: auto;
+        padding: 20px;
+    }
+}
