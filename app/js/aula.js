@@ -6,13 +6,13 @@ conteudoAulas = {};
 function popularAulas(data){
     
     // Área que cria as DIV para as aulas.
-    // Duas divs (aula1 e aula2) são criadas por padrão, o html
+    // Duas divs (aula1 e aula2) são criadas por padrão no html
     // Quando são mais de duas aulas, é criado dinamicamente com o código abaixo
     const totalAulas = Object.keys(data.modulo1.aulas).length;
-    let clones = totalAulas - 0;
-    // console.log(clones);
+    let clones = totalAulas - 2; // total de aulas menos as duas que são criadas por padrão
+    console.log(clones);
     for (let i = 0; i < clones; i++) {
-        let clone = $('#aula2').clone();
+        let clone = $('#aula2').clone(true);
         let aulaAtual = 2 + i;
         let idClone = 3 + i;
         clone.prop('id', 'aula'+idClone);
@@ -24,7 +24,12 @@ function popularAulas(data){
     for (let i = 1; i <= totalAulas; i++) {
         let aulaAtual = '#aula' + i;
         console.log(aulaAtual);
+        $(aulaAtual + ' .aula--identificador .aula-id--svg').text('AULA ' + i);
         $(aulaAtual + ' .aula--titulo').html(data.modulo1.aulas[i-1].titulo);
+        $(aulaAtual + ' .descricao--aula').text(data.modulo1.aulas[i-1].resumo);
+        $(aulaAtual + ' .videoaula-link').attr('src', data.modulo1.aulas[i-1].link_video);
+        // $(aulaAtual + ' .videoaula-link')[0].load();
+        $(aulaAtual + ' .link--pdf').attr('href', data.modulo1.aulas[i-1].link_pdf);
         
     }
 
