@@ -203,6 +203,36 @@ h3{
     padding-bottom: .5rem;
 }
 
+.links-qualidade{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: right;
+}
+
+.qualidade{
+    border: 1px solid #4F4F4F;
+    border-radius: 2px;
+    padding: 4px 9px;
+    font-size: 0.6875rem;
+    color: #4f4f4f;
+}
+
+.qualidade:not(.active){
+    cursor: pointer;
+}
+
+.qualidade.active{
+    background-color: #4f4f4f;
+    color: #fefefe;
+}
+
+.qualidade:not(.active):hover{
+    transform: scale(1.1);
+
+}
+
 .anexo--pdf{
     flex: 1;
 }
@@ -211,8 +241,9 @@ h3{
     justify-content: center;
     align-items: center;
     background-color: var(--accent-two-500);
-    height: 100%;
+    /* height: 100%; */
     border-radius: 10px;
+    padding-block: 30px;;
 }
 .anexo--pdf a:hover, .anexo--pdf a:focus{
     background-color: var(--accent-two-600);
@@ -300,5 +331,8 @@ a.item--outros{
         width: 30px;
         height: auto;
         padding: 20px;
+    }
+    .anexo--pdf a{
+        padding-block: 5px;
     }
 }

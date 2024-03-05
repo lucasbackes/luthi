@@ -27,9 +27,29 @@ function popularAulas(data){
         $(aulaAtual + ' .aula--identificador .aula-id--svg').text('AULA ' + i);
         $(aulaAtual + ' .aula--titulo').html(data.modulo1.aulas[i-1].titulo);
         $(aulaAtual + ' .descricao--aula').text(data.modulo1.aulas[i-1].resumo);
-        $(aulaAtual + ' .videoaula-link').attr('src', data.modulo1.aulas[i-1].link_video);
+        $(aulaAtual + ' .videoaula-link').attr('src', data.modulo1.aulas[i-1].link_video_720);
         // $(aulaAtual + ' .videoaula-link')[0].load();
         $(aulaAtual + ' .link--pdf').attr('href', data.modulo1.aulas[i-1].link_pdf);
+        let qteLinks = data.modulo1.aulas[i-1].outros_links.quantidade_links;
+        console.log('qte:' + qteLinks);
+        // Estrutura abaixo monta os links úteis de acordo com a quantidade de links no JSON
+        for (let j = 0; j < qteLinks; j++) {
+            let tagIcone = '';
+            let tagArquivo = '';
+            console.log('j: ' + j);
+            console.log(data.modulo1.aulas[i-1].outros_links.links[j].tipo);
+            if(data.modulo1.aulas[i-1].outros_links.links[j].tipo == 'download'){
+                tagIcone = '<img src="img/icon-download-file.svg">';
+            }else if(data.modulo1.aulas[i-1].outros_links.links[j].tipo == 'link'){
+                tagIcone = '<img src="img/icon-links.svg">';
+            }
+            let linkEndereco = '<a href="' + data.modulo1.aulas[i-1].outros_links.links[j].link + '" target="_blank" class="item--outros">';
+            let textoLink = data.modulo1.aulas[i-1].outros_links.links[j].texto;
+            $(aulaAtual + ' .links--e-arquivos').append(linkEndereco + tagArquivo + tagIcone + textoLink + "</a>");            
+        }
+            $(aulaAtual + ' .video480').attr('data-link', data.modulo1.aulas[i-1].link_video_480);
+            $(aulaAtual + ' .video720').attr('data-link', data.modulo1.aulas[i-1].link_video_720);
+            
         
     }
 
@@ -60,6 +80,27 @@ $(document).ready(function () {
         $(this).parent().toggleClass('active');
     });
        
+    $('.videoaula').on('click', '.qualidade', (function (e) { 
+        e.preventDefault();
+
+        let divParent = $(this).parent().parent();
+        let videoElement = (divParent.find('video'));
+        console.log(videoElement);
+        console.log(videoElement[0].currentTime);
+        
+               
+        if (!$(this).hasClass('active')){
+            let tempoVideo = videoElement[0].currentTime;
+            console.log('tempo1: ' + tempoVideo);
+            $(videoElement).attr('src', $(this).data('link'));
+            $(videoElement)[0].load();
+            videoElement[0].currentTime = tempoVideo;
+            console.log('tempo2: ' + tempoVideo);
+            $(divParent).find('.qualidade').removeClass('active');
+            $(this).addClass('active');
+        }
+        
+    }));
 
 
     //Rotina para buscar os dados e chamar a função de popular dados

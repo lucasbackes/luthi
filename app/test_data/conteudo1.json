@@ -7,7 +7,8 @@
                 "id":1,
                 "titulo":"Primeira aula",
                 "resumo":"lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet lorem ipsum domet ",
-                "link_video":"videos/curso1_modulo1_aula1_video.mp4",
+                "link_video_480":"videos/curso1_modulo1_aula1_video_480.mp4",
+                "link_video_720":"videos/curso1_modulo1_aula1_video_720.mp4",
                 "link_pdf":"curso1_modulo1_aula1_texto.pdf",
                 "outros_links":{
                     "quantidade_links":"2",
@@ -15,11 +16,13 @@
                         {
                             "id":1,
                             "tipo":"download",
+                            "texto":"Sons para nossa aula",
                             "link":"curso1_modulo1_aula1_link1.pdf"
                         },
                         {
                             "id":2,
                             "tipo":"link",
+                            "texto":"Material de apoio",
                             "link":"curso1_modulo1_aula1_link2.pdf"
                         }
                     ]
@@ -29,7 +32,8 @@
                 "id":2,
                 "titulo":"Segunda aula",
                 "resumo":"aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2 aula2",
-                "link_video":"videos/curso1_modulo1_aula2_video.mp4",
+                "link_video_480":"videos/curso1_modulo1_aula2_video_480.mp4",
+                "link_video_720":"videos/curso1_modulo1_aula2_video_720.mp4",
                 "link_pdf":"curso1_modulo1_aula2_texto.pdf",
                 "outros_links":{
                     "quantidade_links":"2",
@@ -37,12 +41,14 @@
                         {
                             "id":1,
                             "tipo":"download",
+                            "texto":"Sons para nossa aula 2",
                             "link":"curso1_modulo1_aula2_link1.pdf"
                         },
                         {
                             "id":2,
                             "tipo":"link",
-                            "link":"curso1_modulo1_aula2_link2.pdf"
+                            "texto":"Material de apoio 2",
+                            "link":"https://teste.com.br"
                         }
                     ]
                 }
@@ -51,7 +57,8 @@
                 "id":3,
                 "titulo":"Terceira aula",
                 "resumo":"aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 aula3 ",
-                "link_video":"videos/curso1_modulo1_aula3_video.mp4",
+                "link_video_480":"videos/curso1_modulo1_aula3_video_480.mp4",
+                "link_video_720":"videos/curso1_modulo1_aula3_video_720.mp4",
                 "link_pdf":"curso1_modulo1_aula3_texto.pdf",
                 "outros_links":{
                     "quantidade_links":"2",
@@ -59,11 +66,13 @@
                         {
                             "id":1,
                             "tipo":"download",
+                            "texto":"Sons para nossa aula 3",
                             "link":"curso1_modulo1_aula3_link1.pdf"
                         },
                         {
                             "id":2,
                             "tipo":"link",
+                            "texto":"Material de apoio 3",
                             "link":"curso1_modulo1_aula3_link2.pdf"
                         }
                     ]
