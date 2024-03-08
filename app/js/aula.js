@@ -1,14 +1,24 @@
 $('#cabecalho').load('cabecalho.html');
 
-conteudoAulas = {};
+let conteudoAulas = {};
+let nomeCurso = "";
+let qtdeModulos = 1;
+
+
 
 //Função para popular dados
 function popularAulas(data){
+
+    
+    nomeCurso = data.curso;
+    $("#titulo-h1").text(nomeCurso);
+    nomeProfessor = data.professor;
+    $("#professor").text(nomeProfessor);
     
     // Área que cria as DIV para as aulas.
     // Duas divs (aula1 e aula2) são criadas por padrão no html
     // Quando são mais de duas aulas, é criado dinamicamente com o código abaixo
-    const totalAulas = Object.keys(data.modulo1.aulas).length;
+    const totalAulas = Object.keys(data.modulos.modulo1.aulas).length;
     let clones = totalAulas - 2; // total de aulas menos as duas que são criadas por padrão
     console.log(clones);
     for (let i = 0; i < clones; i++) {
@@ -25,30 +35,30 @@ function popularAulas(data){
         let aulaAtual = '#aula' + i;
         console.log(aulaAtual);
         $(aulaAtual + ' .aula--identificador .aula-id--svg').text('AULA ' + i);
-        $(aulaAtual + ' .aula--titulo').html(data.modulo1.aulas[i-1].titulo);
-        $(aulaAtual + ' .descricao--aula').text(data.modulo1.aulas[i-1].resumo);
-        $(aulaAtual + ' .videoaula-link').attr('src', data.modulo1.aulas[i-1].link_video_720);
+        $(aulaAtual + ' .aula--titulo').html(data.modulos.modulo1.aulas[i-1].titulo);
+        $(aulaAtual + ' .descricao--aula').text(data.modulos.modulo1.aulas[i-1].resumo);
+        $(aulaAtual + ' .videoaula-link').attr('src', data.modulos.modulo1.aulas[i-1].link_video_720);
         // $(aulaAtual + ' .videoaula-link')[0].load();
-        $(aulaAtual + ' .link--pdf').attr('href', data.modulo1.aulas[i-1].link_pdf);
-        let qteLinks = data.modulo1.aulas[i-1].outros_links.quantidade_links;
+        $(aulaAtual + ' .link--pdf').attr('href', data.modulos.modulo1.aulas[i-1].link_pdf);
+        let qteLinks = data.modulos.modulo1.aulas[i-1].outros_links.quantidade_links;
         console.log('qte:' + qteLinks);
         // Estrutura abaixo monta os links úteis de acordo com a quantidade de links no JSON
         for (let j = 0; j < qteLinks; j++) {
             let tagIcone = '';
             let tagArquivo = '';
             console.log('j: ' + j);
-            console.log(data.modulo1.aulas[i-1].outros_links.links[j].tipo);
-            if(data.modulo1.aulas[i-1].outros_links.links[j].tipo == 'download'){
+            console.log(data.modulos.modulo1.aulas[i-1].outros_links.links[j].tipo);
+            if(data.modulos.modulo1.aulas[i-1].outros_links.links[j].tipo == 'download'){
                 tagIcone = '<img src="img/icon-download-file.svg">';
-            }else if(data.modulo1.aulas[i-1].outros_links.links[j].tipo == 'link'){
+            }else if(data.modulos.modulo1.aulas[i-1].outros_links.links[j].tipo == 'link'){
                 tagIcone = '<img src="img/icon-links.svg">';
             }
-            let linkEndereco = '<a href="' + data.modulo1.aulas[i-1].outros_links.links[j].link + '" target="_blank" class="item--outros">';
-            let textoLink = data.modulo1.aulas[i-1].outros_links.links[j].texto;
+            let linkEndereco = '<a href="' + data.modulos.modulo1.aulas[i-1].outros_links.links[j].link + '" target="_blank" class="item--outros">';
+            let textoLink = data.modulos.modulo1.aulas[i-1].outros_links.links[j].texto;
             $(aulaAtual + ' .links--e-arquivos').append(linkEndereco + tagArquivo + tagIcone + textoLink + "</a>");            
         }
-            $(aulaAtual + ' .video480').attr('data-link', data.modulo1.aulas[i-1].link_video_480);
-            $(aulaAtual + ' .video720').attr('data-link', data.modulo1.aulas[i-1].link_video_720);
+            $(aulaAtual + ' .video480').attr('data-link', data.modulos.modulo1.aulas[i-1].link_video_480);
+            $(aulaAtual + ' .video720').attr('data-link', data.modulos.modulo1.aulas[i-1].link_video_720);
             
         
     }
