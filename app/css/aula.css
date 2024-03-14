@@ -1,3 +1,4 @@
+
 .btn{
     transition: 0.1s ease-in;
 }
@@ -36,6 +37,16 @@ body{
     padding-inline: 10px;
 }
 
+.voltar{
+    display: flex;
+    align-items: center;
+}
+.voltar img{
+    transition: 0.1s ease-in;
+}
+.voltar:hover img{
+    transform: translateX(-5px);
+}
 
 
 .area--titulo{
@@ -88,6 +99,7 @@ body{
     cursor: pointer;
 }
 .modulos--links{
+    background-color: white;
     color: var(--neutral-600);
     padding: .5rem 1.5rem;
     display: flex;
@@ -100,10 +112,19 @@ body{
     background-color: var(--primary-700);
     color: white;
 }
-a.modulos--links:hover:not(.active), a.modulos--links:focus:not(.active){
-    background-color: white;
+button.modulos--links{
+    text-align: left;
+    border-width: 0;
 }
-a.modulos--links:last-child{
+button.modulos--links:hover:not(.active), button.modulos--links:focus:not(.active){
+    /* background-color: var(--primary-500); */
+    filter: brightness(80%);
+    color: var(--neutral-700);
+    cursor: pointer;
+    
+}
+button.modulos--links:last-child{
+    border-width: 0;
     border-radius: 0 0 10px 10px;
 }
 .modulos--liks--numero{
@@ -142,6 +163,10 @@ a.modulos--links:last-child{
 .aula.active .aula--identificador{
     border-radius: 10px 10px 0 0;
 }
+.aula .aula--identificador:hover{
+    filter: brightness(80%);
+}
+
 
 .aula--conteudo{
     height: 0;
@@ -300,7 +325,7 @@ a.item--outros{
         gap: .5rem;
         width: 100%;
         z-index: 1;
-        background-color: var(--neutral-300);
+        background-color: white;
         border-radius: 0 0 10px 10px;
         
     }

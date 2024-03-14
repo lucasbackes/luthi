@@ -1,8 +1,53 @@
 $('#cabecalho').load('cabecalho.html');
 
-let conteudoAulas = {};
+let linkCurso = 'test_data/conteudo1.json';
+
+let dadosCompletos = {};
 let nomeCurso = "";
 let qtdeModulos = 1;
+let idModuloAtual = 1;
+let objModuloAtual = "data.modulos.modulo" + idModuloAtual;
+console.log('modulo: ' + objModuloAtual);
+
+
+//Rotina para buscar os dados e chamar a função de popular dados
+function geraConteudo(){
+    $.getJSON(linkCurso,{
+    }).done(
+        function(data){
+            dadosCompletos = data;
+            popularModulos(data);
+            popularAulas(data);
+    });
+}
+
+function popularModulos(data) {
+    qtdeModulos = Object.keys(data.modulos).length;
+    console.log("modulos: " + qtdeModulos);
+    let posicaoVetor = idModuloAtual - 1;
+    objModuloAtual = "data.modulos[" + posicaoVetor + "].modulo"+idModuloAtual+".aulas";
+    // console.log('objModuloAtual inicial: ' + objModuloAtual);
+
+    nomeCurso = data.curso;
+    $("#titulo-h1").text(nomeCurso);
+    nomeProfessor = data.professor;
+    $("#professor").text(nomeProfessor);
+
+    let clones = qtdeModulos - 1;
+    console.log('clones de modulo: ' + clones);
+    
+    for (let i = 0; i < clones; i++) {
+        let clone = $('#modulo1').clone(true);
+        let moduloAtual = 1 + i;
+        let idClone = 2 + i;
+        clone.prop('id', 'modulo'+idClone);
+        clone.attr('data-modulo-id', idClone);
+        $('#modulo' + moduloAtual).after(clone);
+        $('#modulo' + idClone + ' .modulos--liks--numero').text('2');
+        $('#modulo' + idClone).removeClass('active');
+    }
+    
+}
 
 
 
@@ -10,22 +55,24 @@ let qtdeModulos = 1;
 function popularAulas(data){
 
     
-    nomeCurso = data.curso;
-    $("#titulo-h1").text(nomeCurso);
-    nomeProfessor = data.professor;
-    $("#professor").text(nomeProfessor);
-    
     // Área que cria as DIV para as aulas.
     // Duas divs (aula1 e aula2) são criadas por padrão no html
     // Quando são mais de duas aulas, é criado dinamicamente com o código abaixo
-    const totalAulas = Object.keys(data.modulos.modulo1.aulas).length;
+       
+   
+    const totalAulas = Object.keys(eval(objModuloAtual)).length;
+
+    console.log('totalAulas: ' + totalAulas);
+    
     let clones = totalAulas - 2; // total de aulas menos as duas que são criadas por padrão
-    console.log(clones);
+    console.log('clones necessários: ' + clones);
+
     for (let i = 0; i < clones; i++) {
         let clone = $('#aula2').clone(true);
         let aulaAtual = 2 + i;
         let idClone = 3 + i;
         clone.prop('id', 'aula'+idClone);
+        clone.addClass('clone');
         $('#aula' + aulaAtual).after(clone);
         // console.log('i = ' + i);
     }
@@ -35,30 +82,30 @@ function popularAulas(data){
         let aulaAtual = '#aula' + i;
         console.log(aulaAtual);
         $(aulaAtual + ' .aula--identificador .aula-id--svg').text('AULA ' + i);
-        $(aulaAtual + ' .aula--titulo').html(data.modulos.modulo1.aulas[i-1].titulo);
-        $(aulaAtual + ' .descricao--aula').text(data.modulos.modulo1.aulas[i-1].resumo);
-        $(aulaAtual + ' .videoaula-link').attr('src', data.modulos.modulo1.aulas[i-1].link_video_720);
+        $(aulaAtual + ' .aula--titulo').html((eval(objModuloAtual))[i-1].titulo);
+        $(aulaAtual + ' .descricao--aula').text((eval(objModuloAtual))[i-1].resumo);
+        $(aulaAtual + ' .videoaula-link').attr('src', (eval(objModuloAtual))[i-1].link_video_720);
         // $(aulaAtual + ' .videoaula-link')[0].load();
-        $(aulaAtual + ' .link--pdf').attr('href', data.modulos.modulo1.aulas[i-1].link_pdf);
-        let qteLinks = data.modulos.modulo1.aulas[i-1].outros_links.quantidade_links;
+        $(aulaAtual + ' .link--pdf').attr('href', (eval(objModuloAtual))[i-1].link_pdf);
+        let qteLinks = (eval(objModuloAtual))[i-1].outros_links.quantidade_links;
         console.log('qte:' + qteLinks);
         // Estrutura abaixo monta os links úteis de acordo com a quantidade de links no JSON
         for (let j = 0; j < qteLinks; j++) {
             let tagIcone = '';
             let tagArquivo = '';
             console.log('j: ' + j);
-            console.log(data.modulos.modulo1.aulas[i-1].outros_links.links[j].tipo);
-            if(data.modulos.modulo1.aulas[i-1].outros_links.links[j].tipo == 'download'){
+            console.log((eval(objModuloAtual))[i-1].outros_links.links[j].tipo);
+            if((eval(objModuloAtual))[i-1].outros_links.links[j].tipo == 'download'){
                 tagIcone = '<img src="img/icon-download-file.svg">';
-            }else if(data.modulos.modulo1.aulas[i-1].outros_links.links[j].tipo == 'link'){
+            }else if((eval(objModuloAtual))[i-1].outros_links.links[j].tipo == 'link'){
                 tagIcone = '<img src="img/icon-links.svg">';
             }
-            let linkEndereco = '<a href="' + data.modulos.modulo1.aulas[i-1].outros_links.links[j].link + '" target="_blank" class="item--outros">';
-            let textoLink = data.modulos.modulo1.aulas[i-1].outros_links.links[j].texto;
+            let linkEndereco = '<a href="' + (eval(objModuloAtual))[i-1].outros_links.links[j].link + '" target="_blank" class="item--outros">';
+            let textoLink = (eval(objModuloAtual))[i-1].outros_links.links[j].texto;
             $(aulaAtual + ' .links--e-arquivos').append(linkEndereco + tagArquivo + tagIcone + textoLink + "</a>");            
         }
-            $(aulaAtual + ' .video480').attr('data-link', data.modulos.modulo1.aulas[i-1].link_video_480);
-            $(aulaAtual + ' .video720').attr('data-link', data.modulos.modulo1.aulas[i-1].link_video_720);
+            $(aulaAtual + ' .video480').attr('data-link', (eval(objModuloAtual))[i-1].link_video_480);
+            $(aulaAtual + ' .video720').attr('data-link', (eval(objModuloAtual))[i-1].link_video_720);
             
         
     }
@@ -112,12 +159,24 @@ $(document).ready(function () {
         
     }));
 
+    $('.modulos--links').on('click', function () {
 
-    //Rotina para buscar os dados e chamar a função de popular dados
-    $.getJSON('test_data/conteudo1.json',{
-    }).done(
-        function(data){
-            popularAulas(data);
+        $('.modulos--links').removeClass('active');
+        $(this).addClass('active');
+
+        $('.item--outros').remove();
+        $('.clone').remove();
+
+        idModuloAtual = $(this).attr('data-modulo-id');
+        let posicaoVetor = idModuloAtual -1;
+        objModuloAtual = "data.modulos[" + posicaoVetor + "]" +".modulo" + idModuloAtual + ".aulas";
+        console.log('objModuloAtual: ' + objModuloAtual);
+        console.log('idModuloAtual: ' + idModuloAtual);
+        popularAulas(dadosCompletos);
+        
     });
+
+    geraConteudo();
+    
 
 });
