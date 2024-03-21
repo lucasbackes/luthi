@@ -7,13 +7,12 @@ require_once('base/Sessao.php');
 $sessao = new Sessao();
 $sessao->criar('usuario', ['id' => 10, 'nome' => 'Lucas Backes']);
 
-var_dump($sessao->carregar()->usuario->nome);
-echo '<hr>';
-var_dump($sessao->checar('usuario'));
-echo '<hr>';
-$sessao->limpar('usuario');
-
-var_dump($sessao->checar('usuario'));
+// var_dump($sessao->carregar()->usuario->nome); // Lucas Backes
+// echo '<hr>';
+// var_dump($sessao->checar('usuario')); //true
+// echo '<hr>';
+// $sessao->limpar('usuario');
+// var_dump($sessao->checar('usuario')); //false
 
 
 // $cursos = (new BuscaConteudo())->busca();

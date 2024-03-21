@@ -1,3 +1,35 @@
+<?php
+
+require_once('base/Conexao.php');
+require_once('model/BuscaConteudo.php');
+require_once('base/Sessao.php');
+
+$sessao = new Sessao();
+
+
+// Verifica se o usuário já está logado
+// Se sim, direciona para pagina de serviços
+// Senão, aguarda informações de login
+if($sessao->checar('usuario')){
+    header("Location: meus-servicos.php");
+    exit();
+} 
+
+
+
+
+// $sessao->criar('usuario', ['id' => 10, 'nome' => 'Lucas Backes']);
+
+// var_dump($sessao->carregar()->usuario->nome); // Lucas Backes
+// echo '<hr>';
+// var_dump($sessao->checar('usuario')); //true
+// echo '<hr>';
+// $sessao->limpar('usuario');
+// var_dump($sessao->checar('usuario')); //false
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -27,7 +59,7 @@
             <input type="text" name="usuario" id="usuario" placeholder="Usuário">
             <input type="password" name="senha" id="senha" placeholder="Senha">
         </div>
-        <button class="entrar">
+        <button id="entrar" class="entrar">
             Entrar
         </button>
         <a href="" class="esqueci">Esqueci minha senha</a>

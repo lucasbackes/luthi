@@ -12,6 +12,7 @@ class Conexao
 
     public static function getInstancia():PDO
     {
+        
         if(empty(self::$instancia)){
 
             try {
@@ -30,8 +31,8 @@ class Conexao
 
             } catch (PDOException $err) {
                 die("Erro: ".$err->getMessage());
+                
             }
-
 
             return self::$instancia;
         }

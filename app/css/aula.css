@@ -221,6 +221,7 @@ button.modulos--links:last-child{
 }
 .videoaula video{
     width: 100%;
+    cursor: pointer;
 }
 h3{
     font-size: 1.125rem;

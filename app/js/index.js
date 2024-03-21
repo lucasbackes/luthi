@@ -19,6 +19,12 @@ $(document).ready(function () {
         console.log('tchau');
     });
 
+    $('#entrar').on('click', function(){
+        let user = $('#usuario').val();
+        console.log(user);
+        console.log('entrar');
+    })
+
        
 
 });
