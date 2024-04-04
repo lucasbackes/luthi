@@ -19,11 +19,27 @@ $(document).ready(function () {
         console.log('tchau');
     });
 
-    $('#entrar').on('click', function(){
+    $('#entrar').on('click', function(e){
+        e.preventDefault;
         let user = $('#usuario').val();
+        let pass = $('#senha').val();
+        var md5Pass = md5(pass);
         console.log(user);
-        console.log('entrar');
+        console.log(md5Pass);
+        // $.post("model/LoginUsuario.php", 
+        //     {
+        //         'user':user,
+        //         'password':md5Password
+        //     },
+        //     function (data) {
+        //         console.log(data)
+        //     }
+        // );
     })
+
+
+
+    
 
        
 
