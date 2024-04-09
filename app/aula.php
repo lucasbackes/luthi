@@ -4,8 +4,8 @@ require_once('base/Conexao.php');
 require_once('model/BuscaConteudo.php');
 require_once('base/Sessao.php');
 
-$sessao = new Sessao();
-$sessao->criar('usuario', ['id' => 10, 'nome' => 'Lucas Backes']);
+// $sessao = new Sessao();
+// $sessao->criar('usuario', ['id' => 10, 'nome' => 'Lucas Backes']);
 
 // var_dump($sessao->carregar()->usuario->nome); // Lucas Backes
 // echo '<hr>';

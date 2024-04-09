@@ -6,6 +6,7 @@ require_once('base/Sessao.php');
 
 $sessao = new Sessao();
 
+// $sessao->deletar();
 
 // Verifica se o usuário já está logado
 // Se sim, direciona para pagina de serviços
@@ -63,7 +64,9 @@ if($sessao->checar('usuario')){
         <button id="entrar" class="entrar">
             Entrar
         </button>
-        <a href="" class="esqueci">Esqueci minha senha</a>
+        <button id="esqueci" class="esqueci">
+            Esqueci minha senha
+        </button>
     </div>
 
 

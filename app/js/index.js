@@ -23,18 +23,27 @@ $(document).ready(function () {
         e.preventDefault;
         let user = $('#usuario').val();
         let pass = $('#senha').val();
-        var md5Pass = md5(pass);
-        console.log(user);
+        let md5Pass = md5(pass);
+        // console.log(user);
+        // console.log(md5Pass);
+        $.post("model/LoginUsuario.php", 
+            {
+                'user':user,
+                'password':md5Pass
+            },
+            function (data) {
+                console.log(data);
+                
+            }
+        );
+    })
+
+    $('#esqueci').on('click', function(e){
+        e.preventDefault;
+        let user = $('#usuario').val();
+        let pass = $('#senha').val();
+        let md5Pass = md5(pass);
         console.log(md5Pass);
-        // $.post("model/LoginUsuario.php", 
-        //     {
-        //         'user':user,
-        //         'password':md5Password
-        //     },
-        //     function (data) {
-        //         console.log(data)
-        //     }
-        // );
     })
 
 
