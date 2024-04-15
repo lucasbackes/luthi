@@ -1,4 +1,4 @@
-$('#cabecalho').load('cabecalho.html');
+$('#cabecalho').load('cabecalho.php');
 
 $(document).ready(function () {
 

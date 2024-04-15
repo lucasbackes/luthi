@@ -56,17 +56,20 @@ if($sessao->checar('usuario')){
 <div id="geral">
 
     <div class="login--panel">
-        <div class="login--title">Login</div>
-        <div class="login--campos">
-            <input type="text" name="usuario" id="usuario" placeholder="Usuário">
-            <input type="password" name="senha" id="senha" placeholder="Senha">
-            <div class="usuario-invalido">Usuário ou senha inválidos.</div>
+        <div class="area--titulo-login">
+            <div class="login--title">Informe seu email</div>
+            <div class="subtitulo--login">Será enviado um código para seu email.</div>
         </div>
-        <button id="entrar" class="entrar">
-            Entrar
+        <div class="login--campos">
+            <input type="email" name="email1" id="email1" placeholder="Endereço de email">
+            <input type="email" name="email2" id="email2" placeholder="Confirme seu email">
+            <div class="aviso-login">Endereços informados não são iguais ou são inválidos</div>
+        </div>
+        <button id="iniciar-recuperacao" class="entrar">
+            Iniciar recuperação de senha
         </button>
-        <button id="esqueci" class="esqueci">
-            Esqueci minha senha
+        <button id="voltar" class="esqueci">
+            Voltar
         </button>
     </div>
 

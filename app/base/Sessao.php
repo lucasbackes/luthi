@@ -8,7 +8,7 @@ class Sessao
         }
     }
 
-    public function criar(string $chave, mixed $valor): Sessao
+    public function criar(string $chave, object $valor): Sessao
     {
         $_SESSION[$chave] = (is_array($valor) ? (object) $valor : $valor);
         return $this;

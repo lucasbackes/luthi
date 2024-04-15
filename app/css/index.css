@@ -35,11 +35,18 @@ body{
     max-width: 100vw;
     background-color: #E9E9E9;
 }
+.login--panel.shake{
+    animation: shake 1s forwards;
+}
 
 .login--title{
     color: var(--title);
     font-size: 2.25rem;
     font-weight: bold;
+}
+.subtitulo--login{
+    padding-top: 10px;
+    color: var(--neutral-320);
 }
 
 .login--campos{
@@ -74,6 +81,12 @@ body{
     transform: scale(1.05);
 }
 
+.aviso-login{
+    text-align: center;
+    color: var(--primary-700);
+    font-weight: 300;
+}
+
 button.esqueci{
     color: var(--neutral-320);
     text-decoration: underline;
@@ -81,6 +94,16 @@ button.esqueci{
     background-color: transparent;
     cursor: pointer;
 }
+
+@keyframes shake{
+    0% { transform: skewY(-15deg); }
+    5% { transform: skewY(15deg); }
+    10% { transform: skewY(-15deg); }
+    15% { transform: skewY(15deg); }
+    20% { transform: skewY(0deg); }
+    100% { transform: skewY(0deg); }
+}
+
 
 @media screen and (max-width: 1280px) {
 

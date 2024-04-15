@@ -1,3 +1,21 @@
+<?php
+
+require_once('base/Conexao.php');
+require_once('base/Sessao.php');
+
+$sessao = new Sessao();
+
+$dadosSessao = $sessao->carregar();
+
+if(!$sessao->checar('usuario')){
+    header("Location: index.php");
+    exit();
+} 
+
+var_dump($dadosSessao);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,7 +37,7 @@
 
 <nav id="cabecalho" class=""></nav>
 
-meus-servicos<div id="geral">
+<div id="geral">
     <a href="index.html" class="voltar">
         <img src="img/seta-voltar.svg">
         voltar
