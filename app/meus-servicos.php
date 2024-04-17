@@ -14,6 +14,8 @@ if(!$sessao->checar('usuario')){
 
 var_dump($dadosSessao);
 
+
+
 ?>
 
 <!DOCTYPE html>

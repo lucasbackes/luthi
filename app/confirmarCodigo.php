@@ -14,6 +14,8 @@ if($sessao->checar('usuario')){
     exit();
 } 
 
+$idUsuario = $_POST['idUsuario'];
+
 
 ?>
 
@@ -44,16 +46,17 @@ if($sessao->checar('usuario')){
 
     <div class="login--panel">
         <div class="area--titulo-login">
-            <div class="login--title">Recuperar senha</div>
-            <div class="subtitulo--login">Você receberá um código no seu email.</div>
+            <div class="login--title">Informe o código</div>
+            <div class="subtitulo--login">Foi enviado um email contendo um código de uso único para o endereço informado.</div>
+            <div class="subtitulo--login">Lembre-se de verificar sua caixa de spam caso não encontre a mensagem em sua caixa de entrada o email.</div>
         </div>
         <div class="login--campos">
-            <input type="email" name="email1" id="email1" placeholder="Endereço de email">
-            <input type="email" name="email2" id="email2" placeholder="Confirme seu email">
+            <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $idUsuario ?>">
+            <input type="number" name="codigo" id="campoCodigo">
             <div class="aviso-login">Endereços informados não são iguais ou são inválidos</div>
         </div>
-        <button id="iniciar-recuperacao" class="entrar">
-            Iniciar recuperação de senha
+        <button id="confirmarCodigo" class="entrar">
+            Confirmar código
         </button>
         <button id="voltar" class="esqueci">
             Voltar

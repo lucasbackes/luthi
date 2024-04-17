@@ -10,11 +10,11 @@ if ($_POST['operacao'] == "sair"){
     echo "okay";
 }
 
-$dadosSessao = $sessao->carregar();
+$dadosCabecalho = $sessao->carregar();
 
-$nomeUsuario = $dadosSessao->nome;
+$nomeUsuario = $dadosCabecalho->usuario->nome;
 
-echo $nomeUsuario;
+// var_dump($dadosCabecalho);
 
 ?>
 
@@ -40,7 +40,7 @@ if($sessao->checar('usuario')){
                 </svg>
             </div>
             <div id ="nomeUsuario" class="menu--aluno-nome">
-                User
+                <?php echo $nomeUsuario ?>
             </div>
         </a>
 

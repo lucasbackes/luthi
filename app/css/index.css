@@ -23,6 +23,9 @@ body{
 }
 
 .login--panel{
+    opacity: 1;
+    translate: 0 0;
+    transition: opacity 0.5s, translate 0.5s;
     display: flex;
     flex-direction: column;
     gap: 2.8rem;
@@ -39,15 +42,43 @@ body{
     animation: shake 1s forwards;
 }
 
+.atras{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    translate: -30px -30px;
+}
+
 .login--title{
     color: var(--title);
     font-size: 2.25rem;
     font-weight: bold;
+    text-align: center;
 }
 .subtitulo--login{
-    padding-top: 10px;
+    padding-top: 20px;
     color: var(--neutral-320);
+    text-align: center;
+    line-height: 1.4;
 }
+
+.requisitos-minimos{
+    width: 90%;
+    align-self: center;
+}
+.requisitos-minimos li{
+    list-style-type:disc;
+    color: var(--neutral-320);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.requisitos-minimos li.atendida{
+    text-decoration: line-through;
+    
+}
+
 
 .login--campos{
     display: flex;
@@ -65,6 +96,14 @@ body{
     border: 0;
     border-radius: 5px;
     position: relative;
+}
+
+#campoCodigo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem 50px;
+    letter-spacing: .5rem;
 }
 
 .entrar{
@@ -87,7 +126,7 @@ body{
     font-weight: 300;
 }
 
-button.esqueci{
+.esqueci{
     color: var(--neutral-320);
     text-decoration: underline;
     border: 0;
