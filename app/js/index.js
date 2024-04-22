@@ -5,7 +5,17 @@ let idUsuario = 0;
 const regexMail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
 
+
+
 $(document).ready(function () {
+
+    $('#senha').keypress(function (e) { 
+        if (e.key === "Enter"){
+            e.preventDefault();
+            $('#entrar').click();
+        }
+        
+    });
 
     $('.aviso-login').hide();
 
@@ -33,15 +43,10 @@ $(document).ready(function () {
         $('#telaLogin').removeClass('atras');
     });
 
-
-    
-
     function usuarioInvalido(){
         $('.aviso-login').show();
         $('.login--panel').addClass('shake');
     }
-
-  
 
     $('#cabecalho').on('click', '.menu--icon', function () {
         console.log('click menu--icon');

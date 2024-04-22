@@ -73,6 +73,18 @@ class UsuarioModelo
         return "ok";
     }
 
+    public function buscaCursosDoUsuario($id)
+    {
+        $db = Conexao::getInstancia();
+        $query = "SELECT c.id, c.nome, uc.andamento, uc.data_conclusao FROM cursos c INNER JOIN usuarios_cursos uc ON uc.id_curso = c.id WHERE uc.id_usuario = $id;
+        ";
+        $stmt = $db->query($query);
+        $resultado = $stmt->fetchAll();
+
+        $resultadoJson = json_encode($resultado);
+        return json_encode($resultadoJson);
+    }
+
 
 
 }

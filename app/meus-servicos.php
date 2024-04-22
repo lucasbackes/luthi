@@ -12,9 +12,7 @@ if(!$sessao->checar('usuario')){
     exit();
 } 
 
-var_dump($dadosSessao);
-
-
+$idUsuario = $dadosSessao->usuario->id;
 
 ?>
 
@@ -36,14 +34,15 @@ var_dump($dadosSessao);
     <link rel="stylesheet" href="css/meus-servicos.css">
 </head>
 <body>
+<div id="idUsuario" style="display: none"><?php echo $idUsuario ?></div>
 
 <nav id="cabecalho" class=""></nav>
 
 <div id="geral">
-    <a href="index.html" class="voltar">
+    <!-- <a href="index.html" class="voltar">
         <img src="img/seta-voltar.svg">
         voltar
-    </a>
+    </a> -->
 
     <div id="titulo-h1" class="flex-row flex-start-center">
         <svg width="59" height="56" viewBox="0 0 59 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,63 +54,42 @@ var_dump($dadosSessao);
     <section id="em-andamento">
         <h2>Meus cursos em andamento</h2>
         <div class="cards flex-row flex-start-center">
-            <div id="cardAndamento1" class="card">
-                <div class="topo-card"></div>
-                <div class="conteudo-card">
-                    <div class="titulo-card">Pictoblox para Professores</div>
-                    <a href="" class="btn botao-card-cursos">
-                        <p>Abrir</p>
-                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5L13 4.5V3.5L0 3.5L0 4.5Z" fill="#292929"/>
-                        </svg>
-                    </a>
+            <template id="templateAndamento">
+                <div class="card">
+                    <div class="topo-card"></div>
+                    <div class="conteudo-card">
+                        <div class="titulo-card">title</div>
+                        <button class="btn botao-card-cursos abrir">
+                            <p>Abrir</p>
+                            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5L13 4.5V3.5L0 3.5L0 4.5Z" fill="#292929"/>
+                            </svg>
+                    </button>
+                    </div>
                 </div>
-            </div>
+            </template>
         </div>
     </section>
 
     <section id="disponiveis">
-        <h2>Cursos disponíveis para mim</h2>
+        <h2>Outros cursos que possuo</h2>
         <div class="cards flex-row flex-start-center">
-            <div id="cardDisponiveis1" class="card">
-                <div class="topo-card"></div>
-                <div class="conteudo-card">
-                    <div class="titulo-card">Pictoblox para Professores</div>
-                    <a href="" class="btn botao-card-cursos">
-                        <p>Participar</p>
-                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5L13 4.5V3.5L0 3.5L0 4.5Z" fill="#292929"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="link-mais">Mais informações</a>
+            <template id="templateDisponiveis">
+                <div class="card">
+                    <div class="topo-card"></div>
+                    <div class="conteudo-card">
+                        <div class="titulo-card">title</div>
+                        <button class="btn botao-card-cursos abrir">
+                            <p>Iniciar</p>
+                            <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5L13 4.5V3.5L0 3.5L0 4.5Z" fill="#292929"/>
+                            </svg>
+                        </button>
+                        <a href="#" class="link-mais">Mais informações</a>
+                    </div>
                 </div>
-            </div>
-            <div id="cardDisponiveis2" class="card">
-                <div class="topo-card"></div>
-                <div class="conteudo-card">
-                    <div class="titulo-card">Pictoblox para Professores de ensino fundamental</div>
-                    <a href="" class="btn botao-card-cursos">
-                        <p>Participar</p>
-                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5L13 4.5V3.5L0 3.5L0 4.5Z" fill="#292929"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="link-mais">Mais informações</a>
-                </div>
-            </div>
-            <div id="cardDisponiveis3" class="card">
-                <div class="topo-card"></div>
-                <div class="conteudo-card">
-                    <div class="titulo-card">Canva + princípios do design</div>
-                    <a href="" class="btn botao-card-cursos">
-                        <p>Participar</p>
-                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3536 4.35355C13.5488 4.15829 13.5488 3.84171 13.3536 3.64645L10.1716 0.464466C9.97631 0.269204 9.65973 0.269204 9.46447 0.464466C9.2692 0.659728 9.2692 0.976311 9.46447 1.17157L12.2929 4L9.46447 6.82843C9.2692 7.02369 9.2692 7.34027 9.46447 7.53553C9.65973 7.7308 9.97631 7.7308 10.1716 7.53553L13.3536 4.35355ZM0 4.5L13 4.5V3.5L0 3.5L0 4.5Z" fill="#292929"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="link-mais">Mais informações</a>
-                </div>
-            </div>
+            </template>
+            
             
             <a href="#" class="btn ver-todos-cursos">
                 Ver todos
@@ -122,7 +100,7 @@ var_dump($dadosSessao);
     </section>
 
 
-    <section id="assinaturas">
+    <section id="assinaturas" style="display: none">
         <h2>Minhas assinaturas</h2>
         <div class="cards flex-row flex-start-center">
             <div id="cardAssinaturas1" class="card">
@@ -200,16 +178,13 @@ var_dump($dadosSessao);
     <section id="cursos-concluidos">
         <h2>Cursos concluídos</h2>
         <div class="lista-historico">
-            <div class="contratacao">
-                Canva + Princípios do design > concluído em 23/09/2023 [ver certificado]
-            </div>
-            <div class="contratacao">
-                Canva + Princípios do design > concluído em 23/09/2023 [ver certificado]
-            </div>
+            <template id="templateConcluidos">
+                <div class="contratacao">title > date</div>
+            </template>
         </div>
     </section>
 
-    <section id="historico">
+    <section id="historico" style="display: none">
         <h2>Histórico de contratações</h2>
         <div class="lista-historico">
             <div class="contratacao">

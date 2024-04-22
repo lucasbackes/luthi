@@ -4,7 +4,7 @@ require_once('base/Conexao.php');
 require_once('model/BuscaConteudo.php');
 require_once('base/Sessao.php');
 
-// $sessao = new Sessao();
+$sessao = new Sessao();
 // $sessao->criar('usuario', ['id' => 10, 'nome' => 'Lucas Backes']);
 
 // var_dump($sessao->carregar()->usuario->nome); // Lucas Backes
@@ -21,7 +21,16 @@ require_once('base/Sessao.php');
 //     echo $curso->nome.'<br>';
 // }
 
-// $curso = $_GET['curso'];
+$curso = $_GET['curso'];
+
+$dadosSessao = $sessao->carregar();
+
+if(!$sessao->checar('usuario')){
+    header("Location: index.php");
+    exit();
+} 
+
+$idUsuario = $dadosSessao->usuario->id;
 
 
 ?>
@@ -49,7 +58,7 @@ require_once('base/Sessao.php');
 <nav id="cabecalho" class=""></nav>
 
 <div id="geral">
-    <a href="meus-servicos.html" class="voltar">
+    <a href="meus-servicos.php" class="voltar">
         <img src="img/seta-voltar.svg" style="width: 25px; height: auto;">
         <span class="voltar--txt">VOLTAR</span>
         

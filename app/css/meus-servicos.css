@@ -79,9 +79,9 @@ h2{
     background-repeat: no-repeat;
     background-size: cover;
 }
-#cardAndamento1 .topo-card{
-    background-image: url(../img/topo-card.png);
-}
+/* #cardAndamento1 .topo-card{
+    background-image: url(../img/topo-card-placeholder.png);
+} */
 .conteudo-card{
     padding: 1rem;
     display: flex;
@@ -112,7 +112,7 @@ h2{
 }
 
 #cardDisponiveis1 .topo-card{
-    background-image: url(../img/topo-card.png);
+    background-image: url(../img/topo-card-placeholder.png);
 }
 
 a.link-mais{
