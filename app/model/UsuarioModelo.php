@@ -76,8 +76,7 @@ class UsuarioModelo
     public function buscaCursosDoUsuario($id)
     {
         $db = Conexao::getInstancia();
-        $query = "SELECT c.id, c.nome, uc.andamento, uc.data_conclusao FROM cursos c INNER JOIN usuarios_cursos uc ON uc.id_curso = c.id WHERE uc.id_usuario = $id;
-        ";
+        $query = "SELECT c.id, c.nome, uc.andamento, uc.data_conclusao FROM cursos c INNER JOIN usuarios_cursos uc ON uc.id_curso = c.id WHERE uc.id_usuario = $id";
         $stmt = $db->query($query);
         $resultado = $stmt->fetchAll();
 
@@ -85,6 +84,37 @@ class UsuarioModelo
         return json_encode($resultadoJson);
     }
 
+    public function verificaPermissaoNoCurso($id, $id_curso)
+    {
+        $db = Conexao::getInstancia();
+        // $query = "SELECT `id_usuario`, `id_curso` FROM `usuarios_cursos` WHERE `id_usuario` = '$id' AND `id_curso` = '$id_curso'";
+        $query = "SELECT COUNT(*) FROM usuarios_cursos WHERE `id_usuario` = '$id' AND `id_curso` = '$id_curso'";
+        $stmt = $db->query($query);
+        $resultado = $stmt->fetchColumn();
+        echo $resultado;
+    }
+
+    public function buscaAndamentoNoCurso($id, $id_curso)
+    {
+        $db = Conexao::getInstancia();
+        $query = "SELECT `andamento` FROM usuarios_cursos WHERE `id_usuario` = '$id' AND `id_curso` = '$id_curso'";
+        $stmt = $db->query($query);
+        $resultado = $stmt->fetchColumn();
+        echo $resultado;
+    }
+
+    public function atualizaAndamento($id, $id_curso, $valorNovo)
+    {
+        $db = Conexao::getInstancia();
+        $query = "UPDATE `usuarios_cursos` SET `andamento` = '$valorNovo' WHERE `id_usuario` = $id AND `id_curso` = '$id_curso'";
+        $stmt = $db->query($query);   
+        return "ok";
+    }
+    
+
+    
+
+    
 
 
 }

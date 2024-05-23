@@ -18,6 +18,8 @@ $(document).ready(function () {
         $(template).find('.btn').attr('data-id', id);
         $(template).find('.titulo-card').html(nome);
         $(template).find('.topo-card').css('background-image', 'url('+ enderecoBase + id +'.png)');
+        $(template).find('.link-mais').attr('href','descricao.php?curso='+id);
+        
         $('#templateDisponiveis').before($(template));
     }
 
