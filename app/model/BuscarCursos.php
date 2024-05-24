@@ -9,6 +9,7 @@ require_once('BuscaConteudo.php');
 $operacao = $_POST['operacao'];
 $id_curso = $_POST['id'];
 $valorNovo = $_POST['valorNovo'];
+$idUsuario = $_POST['id_usuario'];
 
 $sessao = new Sessao();
 $dadosSessao = $sessao->carregar();
@@ -61,6 +62,14 @@ if ($operacao == "atualizaAndamento") {
     print_r($resultado[0]);
     // echo "ok";
 }
+
+if ($operacao == "verificaFormacao") {
+    $resultado = (new UsuarioModelo())->verificaFormacao($id, $id_curso);
+    // var_dump($resultado);
+    print_r($resultado);
+    // echo "ok";
+}
+
 
 
 

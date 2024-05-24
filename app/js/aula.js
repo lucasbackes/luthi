@@ -16,6 +16,7 @@ let idModuloAtual = 1;
 let objModuloAtual = "data.modulos.modulo" + idModuloAtual;
 let caminhoModuloAtual = "";
 let totalAulas = 0;
+let enderecoBase = 'img/cursos/';
 
 // Identifica o id do curso
 let id = $('#idCurso').html();
@@ -44,11 +45,14 @@ function popularModulos(data) {
     console.log(caminhoModuloAtual);
     // console.log('objModuloAtual inicial: ' + objModuloAtual);
 
+    //  Preenche dados básicos do curso
     nomeCurso = data.curso;
     // console.log(nomeCurso);
     $("#titulo-h1").text(nomeCurso);
     nomeProfessor = data.professor;
     $("#professor").text(nomeProfessor);
+    $('.imagem').css('background-image', 'url('+ enderecoBase + id +'.png)');
+
 
     // Calcula total de aulas no curso para avaliar andamento
     for (let i = 0; i < qtdeModulos; i++) {

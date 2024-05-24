@@ -26,7 +26,7 @@ $(document).ready(function () {
     function insereCursoConcluido(id, nome, data_conclusao) {
         template = $($('#templateConcluidos').html()).clone(true, true);
         
-        cursoConcluido = nome + ' > ' + 'concluído em ' + data_conclusao + ' > <a href="certificado.php?curso='+id+'">[ver certificado]</a>';
+        cursoConcluido = '<a href="descricao.php?curso='+id+'">' + nome + '</a>' + ' > ' + 'concluído em ' + data_conclusao + ' > <form style="display: inline" action="certificado.php" method="post"><input type="hidden" id="id_curso" name="id_curso" value="' + id + '"><input type="hidden" id="id_usuario" name="id_usuario" value="' + idUsuario + '"><input type="submit" value="[ver certificado]" class="btn verCertificado"></form>';
         
         // console.log(cursoConcluido);
        

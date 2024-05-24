@@ -111,6 +111,22 @@ class UsuarioModelo
         return "ok";
     }
     
+    public function verificaFormacao($id, $id_curso)
+    {
+        $db = Conexao::getInstancia();
+        $query = "SELECT c.id, c.nome, uc.andamento, uc.data_conclusao, u.nome, u.sobrenome, c.nome cursoNome, c.carga_horaria
+                    FROM cursos c 
+                    INNER JOIN usuarios_cursos uc 
+                    ON uc.id_curso = c.id 
+                    LEFT JOIN usuarios u
+                    ON uc.id_usuario = u.id
+                    WHERE uc.id_usuario = $id AND uc.id_curso = '$id_curso'";
+        $stmt = $db->query($query);
+        $resultado = $stmt->fetch();
+
+        $resultadoJson = json_encode($resultado);
+        return json_encode($resultadoJson);
+    }
 
     
 
