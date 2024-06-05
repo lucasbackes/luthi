@@ -175,14 +175,48 @@ $idUsuario = $dadosSessao->usuario->id;
                 </div>
                 
             </div>
+
+            
+            <div class="declaracao-conclusao-modulo flex-column">
+            <!-- Área que declaração de conslusão do módulo -->
+                <div class="cabecalho--decalaracao">
+                    <h2 class="titulo--declaracao">Declaração de conclusão de módulo</h2>
+                    <div class="subtitulo--declaracao">Realize a autodeclaração abaixo para confirmar que concluiu o módulo atual.</div>
+                </div>
+
+                <div class="texto--declaracao">
+                    Ao preencher seu nome completo e clicar em “concluir módulo”, você declara, sob as penas da lei, que concluiu 
+                    o módulo atual, tendo assistido as aulas e realizado as atividades propostas.
+                </div>
+
+                <div class="formulario--declaracao">
+                    <div class="label--declaracao">Nome completo:</div>
+                    <div class="campos flex-row">
+                    <input class="form" type="text" name="nome-completo" id="nome-completo">
+                    <button class="form concluir-modulo">Concluir módulo</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="aviso-necessidade-modulo-anterior" style="padding-block: 20px;">
+                É necessário concluir o módulo anterior antes de concluir o atual.
+            </div>
+
+            <div class="aviso-modulo-concluido">
+                Módulo concluído.
+            </div>
+        <!-- Fim da área de aulas (coluna) -->
         </div>
 
 
     </div>
 
 
-
+<!-- Fim da Área com duas colunas (Módulos) e (Aulas) -->
 </div>
+
+
 
 
 <style>
@@ -197,13 +231,62 @@ $idUsuario = $dadosSessao->usuario->id;
         background-position: center center;
         background-size: cover;
     }
-
-    h1{
+    h1, .titulo--declaracao{
         color: var(--title);
         font-size: 2.25rem;
         font-weight: bold;
         line-height: 1;
         padding-bottom: 10px;
+    }
+
+    .flex-column{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .declaracao-conclusao-modulo{
+        font-size: 1,25rem;
+        line-height: 1.3;
+        gap: 2.25rem;
+        padding: 2rem;
+        border: 1px #6BB8FF dashed;
+        border-radius: 10px;
+        background-color: white;
+        margin-bottom: 80px;
+    }
+
+    .titulo--declaracao{
+        font-size: 1.8rem;
+    }
+
+    .subtitulo--declaracao{
+        color: #646464;
+    }
+    .campos{
+        gap: 10px;
+    }
+
+    .label--declaracao{
+        margin-bottom: 10px;
+    }
+
+    .form{
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px #292929 solid;
+        font-size: 1.125rem;
+    }
+
+    .concluir-modulo{
+        background-color: #6BB8FF;
+        cursor: pointer;
+        padding-inline: 20px;
+        font-size: 1rem;
+    }
+
+    .concluir-modulo:focus, .concluir-modulo:hover{
+        background-color: #47A6FE;
+        transform: scale(1.05);
     }
 
 

@@ -2,7 +2,7 @@
 
 // to do:
 // Calcular o andamento real baseado no total de aulas do curso completo
-// Fazer torina de atualização do andamento - considerar a abertura da aula como tendo sido assistida
+// Fazer rotina de atualização do andamento - considerar a abertura da aula como tendo sido assistida
 // Exibir barra de progresso no topo
 // Puxar a imagem do curso no topo da página
 
@@ -17,6 +17,7 @@ let objModuloAtual = "data.modulos.modulo" + idModuloAtual;
 let caminhoModuloAtual = "";
 let totalAulas = 0;
 let enderecoBase = 'img/cursos/';
+let andamento = 0;
 
 // Identifica o id do curso
 let id = $('#idCurso').html();
@@ -141,10 +142,33 @@ function popularAulas(data){
             $(aulaAtual + ' .links--e-arquivos').append(linkEndereco + tagArquivo + tagIcone + textoLink + "</a>");            
         }
             $(aulaAtual + ' .video480').attr('data-link', (eval(objModuloAtual))[i-1].link_video_480);
-            $(aulaAtual + ' .video720').attr('data-link', (eval(objModuloAtual))[i-1].link_video_720);
-            
-        
+            $(aulaAtual + ' .video720').attr('data-link', (eval(objModuloAtual))[i-1].link_video_720);       
     }
+
+    console.log('idModuloAtual: ' + idModuloAtual);
+    console.log('andamento: ' + andamento);
+    console.log('andamento + 1: ' + (parseInt(andamento) + 1));
+
+    $('.declaracao-conclusao-modulo').hide();
+    $('.aviso-necessidade-modulo-anterior').hide();
+    $('.aviso-modulo-concluido').hide();
+    if (idModuloAtual == (parseInt(andamento) + 1)){
+        $('.declaracao-conclusao-modulo').show();
+        $('.aviso-necessidade-modulo-anterior').hide();
+        $('.aviso-modulo-concluido').hide();
+        console.log('iguais');
+    }
+    if (idModuloAtual > (parseInt(andamento) + 1)){
+        $('.declaracao-conclusao-modulo').hide();
+        $('.aviso-necessidade-modulo-anterior').show();
+        $('.aviso-modulo-concluido').hide();
+    }
+    if (idModuloAtual < (parseInt(andamento) + 1)){
+        $('.declaracao-conclusao-modulo').hide();
+        $('.aviso-necessidade-modulo-anterior').hide();
+        $('.aviso-modulo-concluido').show();
+    }
+
 
 }
 
@@ -174,6 +198,7 @@ function verificaPermissao(){
             console.log(resposta);
             
             if (resposta >= 1) {
+                buscaAndamentoNoCurso();
                 buscaConteudo();    
             } else{
                 semPermissao();
@@ -205,14 +230,15 @@ function buscaAndamentoNoCurso(){
             'idUsuario' : idUsuario,
             'operacao':'buscaAndamentoNoCurso'
         },
-        function (andamento) {
+        function (andamento_recebido) {
             // conteudo = $.parseJSON(resposta);
             // let cursos = resposta.nome;
+            andamento = andamento_recebido;
             console.log("andamento: " + andamento);
             // console.log(conteudo);
 
-            if (andamento == 0){
-                atualizarAndamento(1);
+            if (andamento < 0){
+                atualizarAndamento(0);
             }
 
         }
@@ -229,7 +255,6 @@ function buscaConteudo() {
         function (resposta) {
             conteudo = $.parseJSON(resposta);
             geraConteudo(conteudo);
-            buscaAndamentoNoCurso();
         }
     );
 
@@ -241,6 +266,12 @@ function buscaConteudo() {
 
 $(document).ready(function () {
 
+    $('.declaracao-conclusao-modulo').hide();
+    $('.aviso-necessidade-modulo-anterior').hide();
+
+    $('.concluir-modulo').on('click', function(){
+        atualizarAndamento(idModuloAtual)
+    });
  
     $('#cabecalho').on('click', '.menu--icon', function () {
         // console.log('click menu--icon');

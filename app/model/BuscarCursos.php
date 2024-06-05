@@ -72,6 +72,4 @@ if ($operacao == "verificaFormacao") {
 
 
 
-
-
 ?>

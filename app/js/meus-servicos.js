@@ -39,10 +39,10 @@ $(document).ready(function () {
     function tratarCursos(cursos) {  
         for (let i = 0; i < Object.keys(cursos).length; i++) {
             estadoCurso = cursos[i].andamento;
-            if (estadoCurso > 0 && estadoCurso < 100 ) {
+            if (estadoCurso >= 0 && estadoCurso < 100 ) {
                 console.log(cursos[i].nome);
                 insereCursoAndamento(cursos[i].id, cursos[i].nome);
-            }else if (estadoCurso == 0){
+            }else if (estadoCurso < 0){
                 insereCursoDisponivel(cursos[i].id, cursos[i].nome);
             }else if (estadoCurso == 100){
                 // console.log('curso concluido: ' + cursos[i].nome + ' em ' + cursos[i].data_conclusao);
