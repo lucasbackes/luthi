@@ -227,6 +227,7 @@ a.ver-todos-cursos:hover, a.ver-todos-cursos:focus{
         flex-wrap: nowrap;
         font-size: 2rem;
         text-align: center;
+        
     }
     h2{
         text-align: center;
@@ -234,6 +235,7 @@ a.ver-todos-cursos:hover, a.ver-todos-cursos:focus{
 
     #geral{
         padding-inline: 10px;
+        align-items: center;
     }
     
 

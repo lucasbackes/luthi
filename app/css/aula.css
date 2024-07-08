@@ -49,7 +49,9 @@ body{
     transform: translateX(-5px);
 }
 
-
+.area--titulo{
+    background-color: white; width: 100%; gap: 80px; border: 1px solid #AAA; border-radius: 5px;
+}
 
 #titulo-h1{
     gap: 2rem;
@@ -289,9 +291,16 @@ a.item--outros{
     #geral{
         gap: 1rem;
     }
-    .area--titulo, h1#titulo-h1, .subheader{
-        background-color: var(--neutral-600);
-        color: white;
+    .area--titulo{
+        gap: 10px;
+        text-align: center;
+        flex-direction: column;
+    }
+    .area--titulo .imagem{
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        object-position: center;
     }
     .area--material{
         flex-direction: column;
@@ -316,7 +325,7 @@ a.item--outros{
 
     #modulos .modulos--seletores{
         position:absolute;
-        display: none;
+        /* display: none; */
         flex-direction: column;
         gap: .5rem;
         width: 100%;
@@ -341,6 +350,11 @@ a.item--outros{
         border-radius: 5px;
     }
 
+    .area--descricao p, .subheader{
+        font-size: 1rem;
+        color: var(--neutral-600);
+    }
+
 }
 
 
@@ -351,7 +365,7 @@ a.item--outros{
     .anexo--pdf img{
         width: 30px;
         height: auto;
-        padding: 20px;
+        /* padding: 20px; */
     }
     .anexo--pdf a{
         padding-block: 5px;

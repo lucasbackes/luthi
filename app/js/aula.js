@@ -6,7 +6,8 @@
 // Exibir barra de progresso no topo
 // Puxar a imagem do curso no topo da página
 
-$('#cabecalho').load('cabecalho.php');
+
+
 
 let dadosCompletos = {};
 let nomeCurso = "";
@@ -18,13 +19,34 @@ let caminhoModuloAtual = "";
 let totalAulas = 0;
 let enderecoBase = 'img/cursos/';
 let andamento = 0;
+let percentualConcluido = 0;
+
+
+
+
+$(document).ready(function () {
+
+    $('#cabecalho').load('cabecalho.php');
+    
+    if ($(window).width() <= 1280){
+        $('.modulos--seletores').hide();    
+    }
+    
+    
 
 // Identifica o id do curso
 let id = $('#idCurso').html();
 let idUsuario = $('#idUsuario').html();
+let nomeCompleto = $('#nomeUsuario').html();
 // console.log('modulo: ' + objModuloAtual);
 // let linkCurso = 'test_data/conteudo1.json';
 
+function abreModalProgresso(){
+    console.log('overlay!');
+    $('.overlay--modal').addClass('aberto');
+    $('.overlay--modal .barra-progresso--andamento').width((percentualConcluido + '%'));
+    
+}
 
 //Rotina para buscar os dados e chamar a função de popular dados
 function geraConteudo(conteudo){
@@ -32,7 +54,22 @@ function geraConteudo(conteudo){
     dadosCompletos = conteudo[0].conteudo;
     // console.log(dadosCompletos);
     popularModulos($.parseJSON(dadosCompletos));
+
+    // Vai para o módulo que o aluno está estudando
+    $('.modulos--links').removeClass('active');
+    idModuloAtual = +andamento + 1;
+    $('#modulo' + idModuloAtual).addClass('active');
+    $('.item--outros').remove();
+    $('.clone').remove();
+    let posicaoVetor = idModuloAtual -1;
+    objModuloAtual = "data.modulos[" + posicaoVetor + "]" +".modulo" + idModuloAtual + ".aulas";
+    console.log('objModuloAtual: ' + objModuloAtual);
+    console.log('idModuloAtual: ' + idModuloAtual);
+
+    // console.log(dadosCompletos);
     popularAulas($.parseJSON(dadosCompletos));
+
+
 }
 
 function popularModulos(data) {
@@ -62,6 +99,10 @@ function popularModulos(data) {
         qtdeAulas = qtdeAulas + Object.keys(eval(temp)).length;
     }
     console.log("Total de aulas no curso todo: " + qtdeAulas);
+
+    percentualConcluido = 100 / qtdeAulas * andamento;
+    $('.area--titulo .barra-progresso--andamento').width((percentualConcluido + '%'));
+    console.log('Percentual concluído: ' + percentualConcluido);
     
 
     let clones = qtdeModulos - 1;
@@ -70,6 +111,8 @@ function popularModulos(data) {
     // Carrega título do módulo 1
     $('#modulo1' + ' .modulos--liks--titulo').text((eval(caminhoModuloAtual + '1')).modulo_nome);
 
+    
+    // Faz os clones do botão seletor de módulo
     for (let i = 0; i < clones; i++) {
         let clone = $('#modulo1').clone(true);
         let moduloAtual = 1 + i;
@@ -82,7 +125,29 @@ function popularModulos(data) {
         $('#modulo' + idClone + ' .modulos--liks--titulo').text((eval(caminhoModuloAtual + idClone)).modulo_nome);
         $('#modulo' + idClone).removeClass('active');
         console.log(caminhoModuloAtual + idClone);
+
+        if ((parseInt(andamento)) === idClone){
+            console.log('idClone: ' + idClone + ' :: modulo-concluido-check :: andamento: ' + (parseInt(andamento) + 1));
+            $('#modulo' + idClone + ' .icone-modulo-completo').show();
+        }
     }
+
+    // Verifica se módulo 1 já foi concluído e coloca o "check" caso tenha sido
+    // Verificação fica DEPOIS do loop "for" para evitar que o "check" seja clonado
+    if (1 <= (parseInt(andamento) + 1)){
+        // console.log('modulo-concluido-check');
+        $('#modulo1 .icone-modulo-completo').show();
+    }
+
+    let delay = 0.4;
+    for (let i = 1; i <= andamento; i++) {
+        delay += 0.4;
+        $('#modulo' + i + ' .icone-modulo-completo').css('opacity', '1');
+        $('#modulo' + i + ' .icone-modulo-completo').css('transform', 'scale(1)');
+        $('#modulo' + i + ' .icone-modulo-completo').css('transition-delay', (delay + 's'));
+        
+    }
+    
     
 }
 
@@ -218,7 +283,18 @@ function atualizarAndamento(valorNovo){
             'operacao':'atualizaAndamento'
         },
         function (resposta) {
-            console.log("Atualizado: " + resposta);
+            
+            if (resposta == 'o'){
+                console.log('ok');
+                // $('.aviso-modulo-concluido').show();
+                // $('.declaracao-conclusao-modulo').hide();
+                $('html').scrollTop(0);
+                abreModalProgresso();
+            }else{
+                console.log('Erro ao atualizar informações do andamento do curso');
+            }
+            
+
         }
     );
 }
@@ -263,14 +339,21 @@ function buscaConteudo() {
     });
 }
 
-
-$(document).ready(function () {
+    $('.icone-modulo-completo').hide();
+    
 
     $('.declaracao-conclusao-modulo').hide();
     $('.aviso-necessidade-modulo-anterior').hide();
 
     $('.concluir-modulo').on('click', function(){
-        atualizarAndamento(idModuloAtual)
+        if (nomeCompleto == $('#nome-completo').val()){
+            atualizarAndamento(idModuloAtual);
+        }
+        else{
+            console.log('Nomes não são iguais');
+            $('#mensagemErroForm').html('Nome digitado não é igual ao do cadastro.');
+        }
+        
     });
  
     $('#cabecalho').on('click', '.menu--icon', function () {
@@ -329,8 +412,21 @@ $(document).ready(function () {
         console.log('idModuloAtual: ' + idModuloAtual);
         // console.log(dadosCompletos);
         popularAulas($.parseJSON(dadosCompletos));
+
+        if ($(window).width() <= 1280){
+            $('.modulos--seletores').toggle();
+        }
         
     });
+
+    $('#fechar-modal').on('click', function (e) {
+        e.preventDefault;
+        $('.overlay--modal').removeClass('aberto');
+        $('.overlay--modal .barra-progresso--andamento').addClass('grande');
+        location.reload();
+    });
+
+    
 
     // Busca conteudo das aulas
     
